@@ -9,4 +9,10 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  runtimeConfig: {
+    public: {
+      appwriteEndpoint: '',
+      appwriteProjectId: '',
+    },
+  },
 });

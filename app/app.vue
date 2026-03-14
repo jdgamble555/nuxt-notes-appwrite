@@ -1,3 +1,6 @@
 <template>
-  <h1 class="text-3xl font-bold underline">Hello world!</h1>
+  <main class="flex items-center flex-col gap-5 p-5">
+    <h1 class="text-3xl font-bold text-red-800">Notes App!</h1>
+    <Auth />
+  </main>
 </template>
