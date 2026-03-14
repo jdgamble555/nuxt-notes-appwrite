@@ -1,6 +1,6 @@
 <script setup lang="ts">
-const { logout } = useAuth();
-const { user } = useUser();
+const { logout } = useAuth()
+const { user } = useUser()
 </script>
 
 <template>

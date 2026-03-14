@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const { login, register, authError, authForm } = useAuth();
+const { login, register, authError, authForm } = useAuth()
 
-const isLogin = ref(true);
+const isLogin = ref(true)
 </script>
 
 <template>
@@ -10,6 +10,7 @@ const isLogin = ref(true);
   >
     <form class="space-y-3">
       <input
+        autocomplete="email"
         type="email"
         placeholder="Email"
         v-model="authForm.email"
@@ -17,6 +18,7 @@ const isLogin = ref(true);
       />
 
       <input
+        autocomplete="current-password"
         type="password"
         placeholder="Password"
         v-model="authForm.password"
@@ -37,6 +39,7 @@ const isLogin = ref(true);
       </template>
       <template v-else>
         <input
+          autocomplete="name"
           type="text"
           placeholder="Name"
           v-model="authForm.name"

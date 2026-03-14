@@ -14,7 +14,10 @@ export const useAuth = () => {
         name: ""
     })
 
-    const login = async (email: string, password: string) => {
+    const login = async (
+        email: string, 
+        password: string
+    ) => {
         try {
             await $account.createEmailPasswordSession({
                 email,
@@ -34,7 +37,11 @@ export const useAuth = () => {
         }
     }
 
-    const register = async (email: string, password: string, name?: string) => {
+    const register = async (
+        email: string, 
+        password: string, 
+        name?: string
+    ) => {
         try {
             await $account.create({
                 userId: $ID.unique(),

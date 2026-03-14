@@ -1,5 +1,5 @@
-import { ID } from 'appwrite'
-import { Client, Account, Realtime } from 'appwrite'
+import { ID, TablesDB } from 'appwrite'
+import { Client, Account, Permission, Role, Query } from 'appwrite'
 
 export default defineNuxtPlugin(() => {
 
@@ -7,7 +7,7 @@ export default defineNuxtPlugin(() => {
 
     const client = new Client()
 
-    const realtime = new Realtime(client);
+    const tables = new TablesDB(client)
 
     client
         .setEndpoint(config.public.appwriteEndpoint)
@@ -15,12 +15,18 @@ export default defineNuxtPlugin(() => {
 
     const account = new Account(client)
 
+    const databaseId = config.public.appwriteDatabaseId
+
     return {
         provide: {
             ID,
+            Permission,
+            Role,
+            Query,
             client,
             account,
-            realtime
+            tables,
+            databaseId
         }
     }
 })

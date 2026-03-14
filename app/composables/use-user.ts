@@ -11,7 +11,7 @@ export const useUser = () => {
         loading: boolean
     }>('user', () => ({
         data: null,
-        loading: false
+        loading: true
     }))
 
     const getUser = async () => {
@@ -25,10 +25,6 @@ export const useUser = () => {
         }
         return user
     }
-
-    callOnce(async () => {
-        await getUser()
-    })
 
     return {
         user,
