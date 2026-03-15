@@ -60,7 +60,7 @@ const isLogin = ref(true)
       <template v-if="isLogin">
         <button
           type="button"
-          @click="login(authForm.email, authForm.password)"
+          @click="login"
           class="rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-800"
         >
           Login
@@ -69,7 +69,7 @@ const isLogin = ref(true)
       <template v-else>
         <button
           type="button"
-          @click="register(authForm.email, authForm.password, authForm.name)"
+          @click="register"
           class="rounded-lg bg-gray-200 px-4 py-2 text-sm font-medium text-gray-900 transition hover:bg-gray-300"
         >
           Register

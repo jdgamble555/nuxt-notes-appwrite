@@ -14,10 +14,10 @@ export const useAuth = () => {
         name: ""
     })
 
-    const login = async (
-        email: string, 
-        password: string
-    ) => {
+    const login = async () => {
+        
+        const { email, password } = authForm.value
+
         try {
             await $account.createEmailPasswordSession({
                 email,
@@ -37,11 +37,10 @@ export const useAuth = () => {
         }
     }
 
-    const register = async (
-        email: string, 
-        password: string, 
-        name?: string
-    ) => {
+    const register = async () => {
+
+        const { email, password, name } = authForm.value
+
         try {
             await $account.create({
                 userId: $ID.unique(),
@@ -50,7 +49,7 @@ export const useAuth = () => {
                 name
             })
 
-            await login(email, password)
+            await login()
 
         } catch (error) {
             if (error instanceof AppwriteException) {
@@ -72,9 +71,6 @@ export const useAuth = () => {
 
             await getUser()
 
-            return {
-                error: null
-            }
         } catch (error) {
             if (error instanceof AppwriteException) {
                 authError.value = error.message
